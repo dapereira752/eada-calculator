@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Two Numbers</title>
+  <style>
+    body {
+      max-width: 32rem;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      font-family: Arial, sans-serif;
+    }
+
+    label {
+      display: block;
+      margin: 1rem 0 0.35rem;
+    }
+
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0.55rem;
+      font: inherit;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.6rem 1rem;
+      font: inherit;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Add Two Numbers</h1>
+
+    <label for="first-number">First number</label>
+    <input id="first-number" type="number" step="any">
+
+    <label for="second-number">Second number</label>
+    <input id="second-number" type="number" step="any">
+
+    <button id="compute" type="button">Compute</button>
+    <p id="result" aria-live="polite">The result will appear here.</p>
+  </main>
+
+  <script>
+    const firstNumber = document.getElementById("first-number");
+    const secondNumber = document.getElementById("second-number");
+    const result = document.getElementById("result");
+
+    document.getElementById("compute").addEventListener("click", () => {
+      if (firstNumber.value === "" || secondNumber.value === "") {
+        result.textContent = "Enter both numbers to compute their sum.";
+        return;
+      }
+
+      result.textContent = `Result: ${firstNumber.valueAsNumber + secondNumber.valueAsNumber}`;
+    });
+  </script>
+</body>
+</html>
